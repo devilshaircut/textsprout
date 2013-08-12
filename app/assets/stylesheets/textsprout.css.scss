@@ -194,8 +194,9 @@ button.ts-button {
 
 #ts-navigation {
 	width: 200px;
-	position: absolute;
 	margin: 20px 0 0 20px;
+	position: absolute;
+	z-index: 200;
 	background: #303030;
 	color: #747474;
 	@include box-shadow(0 1px 3px #585858);
@@ -294,11 +295,32 @@ button.ts-button {
 	width: 200px;
 	height: 200px;
 	margin: 20px 20px 0 0;
-	background: #f8f8f8;
+	background: #e8f6f3;
+	cursor: pointer;
+	h3 {
+		display: block;
+		width: 170px;
+		padding: 10px 15px 0 15px;
+		margin: 100px 0 0 0;
+		font-weight: 700;
+		background: transparent url("/assets/opacity-50.png") repeat 0 0;
+		@include adjust-font-size-to(12px);
+	}
+	h4 {
+		display: block;
+		width: 170px;
+		padding: 0 15px 10px 15px;
+		font-weight: 100;
+		background: transparent url("/assets/opacity-50.png") repeat 0 0;
+		@include adjust-font-size-to(18px);
+		line-height: 1.2em;
+	}
 }
+/*.ts-tile:hover {
+	@include opacity(.66);
+}*/
 
-#ts-viewportone,
-#ts-viewporttwo {
+#ts-viewport {
 	width: 100%;
 	height: 100%;
 }
@@ -329,15 +351,45 @@ button.ts-button {
 
 
 
+.animation-scrollpage-enter {
+	@include transition(0.5s linear all);
+	@include transition-duration(0.25s);
+	position: relative;
+	top: 0;
+}
+.animation-scrollpage-enter.animation-scrollpage-enter-active {
+	top: -100%;
+}
 
+.animation-scrollpage-leave {
+	@include transition(0.5s linear all);
+	@include transition-duration(0.25s);
+	position: relative;
+	top: 0;
+}
+.animation-scrollpage-leave.animation-scrollpage-leave-active {
+	top: -100%;
+}
 
+.animation-fadein-enter {
+	@include transition(0.5s linear all);
+	@include transition-duration(0.25s);
+	position: relative;
+	top: 0;
+}
+.animation-fadein-enter.animation-fadein-enter-active {
+	top: -100%;
+}
 
-
-
-
-
-
-
+.animation-fadein-leave {
+	@include transition(0.5s linear all);
+	@include transition-duration(0.25s);
+	position: relative;
+	@include opacity(0.0);
+}
+.animation-fadein-leave.animation-fadein-leave-active {
+	@include opacity(1.0);
+}
 
 
 

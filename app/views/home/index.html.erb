@@ -6,11 +6,29 @@
 	<page id="ts-home">
 		<content>
 			<header>
-				<h5>Trending</h5>
+				<h5>Home</h5>
 				<h3>Lady Gaga and the End of Summer</h3>
 				<h6><strong>By: Caitlyn MacDonald</strong> • Music</h6>
 				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
-				<a href="features" class="ts-button">Read Full Article</a>
+				<a href="/" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile></tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<!-- Content for the Features page. -->
+<script type="text/ng-template" id="features.html">
+	<page id="ts-features">
+		<content>
+			<header>
+				<h5>Features</h5>
+				<h3>Webslinging with Andrew Garfield</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Celebrities</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
 				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
@@ -23,15 +41,57 @@
 </script>
 
 <!-- Content for the Features page. -->
-<script type="text/ng-template" id="features.html">
-	<page id="ts-features">
+<script type="text/ng-template" id="pricing.html">
+	<page id="ts-pricing">
 		<content>
 			<header>
-				<h5>Just Posted</h5>
+				<h5>Pricing</h5>
 				<h3>Webslinging with Andrew Garfield</h3>
 				<h6><strong>By: Caitlyn MacDonald</strong> • Celebrities</h6>
 				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
-				<a href="features" class="ts-button">Read Full Article</a>
+				<a href="/" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<!-- Content for the Features page. -->
+<script type="text/ng-template" id="resources.html">
+	<page id="ts-resources">
+		<content>
+			<header>
+				<h5>Resources</h5>
+				<h3>Webslinging with Andrew Garfield</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Celebrities</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="/" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<!-- Content for the Features page. -->
+<script type="text/ng-template" id="contact.html">
+	<page id="ts-contact">
+		<content>
+			<header>
+				<h5>Contact Us</h5>
+				<h3>Webslinging with Andrew Garfield</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Celebrities</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
 				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
@@ -46,17 +106,15 @@
 <navigation>
 	<ul>
 		<li><a href="/">Home</a></li>
-		<li><a href="features" ng-click='magicLoader()'>Features</a></li>
-		<li><a href="#">Pricing</a></li>
-		<li><a href="#">Resources</a></li>
-		<li><a href="#">Contact Us</a></li>
+		<li><a href="features">Features</a></li>
+		<li><a href="pricing">Pricing</a></li>
+		<li><a href="resources">Resources</a></li>
+		<li><a href="contact">Contact Us</a></li>
 	</ul>
 </navigation>
 <controls></controls>
 
-<viewportone ng-view></viewportone>
-
-<viewporttwo></viewporttwo>
+<viewport></viewport>
 
 
 
