@@ -245,12 +245,61 @@ button.ts-button {
 	color: #ffffff;
 	overflow: hidden;
 	@include box-shadow(0 0 3px #585858);
+	ul#ts-controls-options {
+		display: block;
+		float: left;
+		height: 45px;
+		padding: 15px 0 0 0;
+		margin: 0 10px 0 0;
+		> li {
+			display: block;
+			float: left;
+			> a {
+				display: block;
+				float: left;
+				height: 42px;
+				color: #7f7f7f;
+				font-weight: 700;
+				text-decoration: none;
+				@include transition-property(color);
+				@include transition-duration(0.1s);
+				> span {
+					display: block;
+					float: left;
+					padding: 5px 15px;
+					border-right: 1px solid #3c3c3c;
+					border-left: 1px solid #010101;
+				}
+			}
+			> a.ts-current,
+			> a:hover {
+				color: #ffffff;
+				border-bottom: 3px solid #008dde;
+				> span {
+				}
+			}
+		}
+		> li:nth-child(1) {
+			> a {
+				> span {
+					border-left: none;
+				}
+			}
+		}
+		> li:last-child {
+			> a {
+				> span {
+					border-right: none;
+				}
+			}
+		}
+	}
 	ul#ts-session {
 		display: block;
 		float: left;
 		height: 45px;
 		padding: 15px 10px 0 10px;
-		margin: 0 20px;
+		margin: 0 0 0 20px;
 		background: #313131;
 		@include box-shadow(0 0 15px #191919);
 		> li {
@@ -364,12 +413,12 @@ button.ts-button {
 .ts-content {
 	height: 100%;
 	margin: 0 0 0 700px;
-/*	@include transition-property(margin-left);
-	@include transition-duration(0.5s);*/
+	@include transition-property(margin-left);
+	@include transition-duration(0.5s);
 	@include box-shadow(0 0 3px #dedede);
 }
 .ts-content:hover {
-/*	margin: 0 0 0 280px;*/
+	margin: 0 0 0 280px;
 }
 
 .ts-header {
