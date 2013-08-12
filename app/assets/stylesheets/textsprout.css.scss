@@ -195,24 +195,40 @@ button.ts-button {
 #ts-navigation {
 	width: 200px;
 	margin: 20px 0 0 20px;
+	padding: 10px 0;
 	position: absolute;
 	z-index: 200;
-	background: #303030;
+	background: #313131;
 	color: #747474;
-	@include box-shadow(0 1px 3px #585858);
+	@include box-shadow(0 0 3px #585858);
+	@include border-radius(2px);
+	h3 {
+		display: block;
+		padding: 5px 10px;
+		margin: 0 0 10px 0;
+		color: #ffffff;
+		font-weight: 700;
+		@include adjust-font-size-to(16px);
+	}
 	ul {
 		display: block;
-		padding: 10px 0;
+		border-top: 1px solid #282828;
+		border-bottom: 1px solid #3c3c3c;
 		li {
 			display: block;
 			a {
 				display: block;
 				padding: 5px 10px;
+				border-top: 1px solid #3c3c3c;
+				border-bottom: 1px solid #282828;
 				color: #747474;
 				text-decoration: none;
+				@include transition-property(background, color);
+				@include transition-duration(0.075s);
 			}
 			a:hover {
 				color: #ffffff;
+				background: #292929;
 			}
 		}
 	}
@@ -225,8 +241,112 @@ button.ts-button {
 	z-index: 100;
 	left: 0;
 	bottom: 0;
-	background: #1a1a1a;
+	background: #272727;
+	color: #ffffff;
+	overflow: hidden;
 	@include box-shadow(0 0 3px #585858);
+	ul#ts-session {
+		display: block;
+		float: left;
+		height: 45px;
+		padding: 15px 10px 0 10px;
+		margin: 0 20px;
+		background: #313131;
+		@include box-shadow(0 0 15px #191919);
+		> li {
+			display: block;
+			float: left;
+			> a {
+				display: block;
+				float: left;
+				padding: 5px 15px;
+				border-right: 1px solid #3c3c3c;
+				border-left: 1px solid #010101;
+				color: #7f7f7f;
+				font-weight: 700;
+				text-decoration: none;
+				@include transition-property(color);
+				@include transition-duration(0.1s);
+			}
+			> a:hover {
+				color: #ffffff;
+			}
+		}
+		> li:nth-child(1) {
+			> a {
+				border-left: none;
+			}
+		}
+		> li:last-child {
+			> a {
+				border-right: none;
+			}
+		}
+	}
+	#ts-musicplayer {
+		display: block;
+		float: left;
+		width: 630px;
+		padding: 7px 11px 10px 11px;
+		margin: 7px 0 0 0;
+		background: #1d1d1d;
+		border-bottom: 1px solid #333333;
+		@include border-radius(3px);
+		.ts-musicplayer-button {
+			display: block;
+			float: left;
+			width: 25px;
+			height: 25px;
+			padding: 0;
+			margin: 4px 5px 0 0;
+			border-top: 1px solid #535353;
+			border-right: 1px solid #373737;
+			border-bottom: 1px solid #303030;
+			border-left: 1px solid #373737;
+			@include background-image(linear-gradient(#414141, #393939, #313131));
+			@include border-radius(2px);
+		}
+		#ts-musicplayer-status {
+			display: block;
+			float: left;
+			width: 500px;
+			padding: 0 0 0 5px;
+			#ts-musicplayer-title {
+				display: inline-block;
+				width: 500px;
+				h3 {
+					display: block;
+					float: left;
+					font-weight: 300;
+					color: #9d9d9d;
+					@include adjust-font-size-to(12px);
+					strong {
+						color: #ffffff;
+					}
+				}
+				h4 {
+					display: block;
+					float: right;
+					color: #9d9d9d;
+					@include adjust-font-size-to(10px);
+				}
+			}
+			#ts-musicplayer-progress {
+				display: block;
+				float: left;
+				width: 500px;
+				border-bottom: 1px solid #292929;
+				background: #161616; 
+				#ts-musicplayer-buffer {
+					@include background-image(linear-gradient(#262626, #3c3c3c));
+					#ts-musicplayer-progress-bar {
+						height: 3px;
+						@include background-image(linear-gradient(#0096e0, #0080d7));
+					}
+				}
+			}
+		}
+	}
 }
 
 .ts-page {
@@ -244,12 +364,12 @@ button.ts-button {
 .ts-content {
 	height: 100%;
 	margin: 0 0 0 700px;
-	@include transition-property(margin-left);
-	@include transition-duration(0.5s);
+/*	@include transition-property(margin-left);
+	@include transition-duration(0.5s);*/
 	@include box-shadow(0 0 3px #dedede);
 }
 .ts-content:hover {
-	margin: 0 0 0 280px;
+/*	margin: 0 0 0 280px;*/
 }
 
 .ts-header {
@@ -352,7 +472,7 @@ button.ts-button {
 
 
 .animation-scrollpage-enter {
-	@include transition(0.5s linear all);
+	@include transition(0.5s ease all);
 	@include transition-duration(0.25s);
 	position: relative;
 	top: 0;
@@ -362,7 +482,7 @@ button.ts-button {
 }
 
 .animation-scrollpage-leave {
-	@include transition(0.5s linear all);
+	@include transition(0.5s ease all);
 	@include transition-duration(0.25s);
 	position: relative;
 	top: 0;
@@ -372,17 +492,17 @@ button.ts-button {
 }
 
 .animation-fadein-enter {
-	@include transition(0.5s linear all);
+	@include transition(0.5s ease-out all);
 	@include transition-duration(0.25s);
 	position: relative;
-	top: 0;
+	@include opacity(0.0);
 }
 .animation-fadein-enter.animation-fadein-enter-active {
-	top: -100%;
+	@include opacity(1.0);
 }
 
 .animation-fadein-leave {
-	@include transition(0.5s linear all);
+	@include transition(0.5s ease-out all);
 	@include transition-duration(0.25s);
 	position: relative;
 	@include opacity(0.0);
