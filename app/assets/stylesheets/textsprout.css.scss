@@ -1,0 +1,397 @@
+@import "compass/reset";
+@import "compass/typography";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/hacks";
+
+
+
+/****************************************************************************************************
+
+  Table of Contents
+
+*****************************************************************************************************
+
+  0.  SCSS Variables
+      - Font Sizing
+      - Media Size Breakpoints
+
+  1.  Universal Cascade
+      - Body
+
+  2.  Tag-Specific Styles
+      - Forms
+      - Tables
+
+  3.  Utility Classes
+      - Buttons
+
+  4.  Template Sections
+      - Navigation
+      - Controls
+      - Page
+        - Content
+          - Header
+          - Article
+            - Tile
+
+  5.  Content Elements
+
+  6.  Pages
+
+  7.  JS Widgets
+
+****************************************************************************************************/
+
+
+
+/****************************************************************************************************
+  0.  SCSS Variables
+****************************************************************************************************/
+
+
+/* Font Sizing */
+/************************************************/
+
+$base-font-size: 13px;
+$base-line-height: 20px;
+@include establish-baseline;
+
+
+/* Media Size Breakpoints */
+/************************************************/
+
+@media (min-width: 1200px) {}							/* Large Viewport */
+@media (min-width: 980px) and (max-width: 1199px) {}	/* Normal Viewport */
+@media (min-width: 768px) and (max-width: 979px) {}		/* Tablet Viewport */
+@media (min-width: 480px) and (max-width: 767px) {}		/* Phone Viewport */
+@media (max-width: 480px) {}							/* Small Viewport */
+
+
+
+/****************************************************************************************************
+  1.  Universal Cascade
+****************************************************************************************************/
+
+
+/* HTML */
+/************************************************/
+
+html {
+	height: 100%;
+	position: relative;
+}
+
+
+/* Body */
+/************************************************/
+
+body {
+	height: 100%;
+	color: #333333;
+	font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	// font-family: 'Rufina', 'Georgia', 'Times New Roman', serif;
+	font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+strong { font-weight: 700; }
+
+p { margin: 0 0 10px 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Buttons */
+/************************************************/
+
+.ts-button {
+	display: block;
+	float: left;
+	padding: 5px 14px;
+	margin: 0 5px 0 0;
+	position: relative;
+	color: #ffffff;
+	background: #333333;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	@include adjust-font-size-to(12px);
+}
+
+.ts-button:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+}
+
+.ts-button:active {
+	position: relative;
+	top: 2px;
+}
+
+.ts-button:hover { @include opacity(.66); }
+
+input.ts-button,
+button.ts-button {
+	padding: 8px 14px;
+	font-weight: 500;
+	border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ts-navigation {
+	width: 200px;
+	position: absolute;
+	margin: 20px 0 0 20px;
+	background: #303030;
+	color: #747474;
+	@include box-shadow(0 1px 3px #585858);
+	ul {
+		display: block;
+		padding: 10px 0;
+		li {
+			display: block;
+			a {
+				display: block;
+				padding: 5px 10px;
+				color: #747474;
+				text-decoration: none;
+			}
+			a:hover {
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+#ts-controls {
+	height: 60px;
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	bottom: 0;
+	background: #1a1a1a;
+	@include box-shadow(0 0 3px #585858);
+}
+
+.ts-page {
+	width: 100%;
+	height: 100%;
+	background: #f4f4f4 url("/assets/gaga.png") no-repeat -50px 0;
+	@include background-size(contain);
+}
+
+.ts-page#ts-features {
+	background: #9e9d8b url("/assets/andrew.png") no-repeat -110px 0;
+	@include background-size(contain);
+}
+
+.ts-content {
+	height: 100%;
+	margin: 0 0 0 700px;
+	@include transition-property(margin-left);
+	@include transition-duration(0.5s);
+	@include box-shadow(0 0 3px #dedede);
+}
+.ts-content:hover {
+	margin: 0 0 0 280px;
+}
+
+.ts-header {
+	display: inline-block;
+	border-left: 2px solid #ffffff;
+	width: 260px;
+	padding: 0 20px;
+	min-height: 100%;
+	background: transparent url("/assets/opacity-50.png") repeat 0 0;
+	@include opacity(0.975);
+	h3 {
+		margin: 0 0 30px 0;
+		font-weight: 100;
+		@include adjust-font-size-to(48px);
+		line-height: 1em;
+	}
+	h5 {
+		margin: 150px 0 10px 0;
+		font-weight: 900;
+		text-transform: uppercase;
+		@include adjust-font-size-to(12px);
+	}
+	h6 {
+		padding: 0 0 5px 0;
+		margin: 0 0 10px 0;
+		border-bottom: 1px dotted #a8a8a8;
+	}
+}
+
+.ts-article {
+	display: inline-block;
+	width: 1000px;
+	padding: 0 20px;
+	min-height: 100%;
+	position: absolute;
+	z-index: 50;
+	background: #ffffff;
+}
+
+.ts-tile {
+	display: block;
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 20px 20px 0 0;
+	background: #f8f8f8;
+}
+
+#ts-viewportone,
+#ts-viewporttwo {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

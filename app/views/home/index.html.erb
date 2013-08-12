@@ -1,6 +1,109 @@
-Angular JS test.
 
-<label>Name:</label>
-<input type="text" ng-model="userName" placeholder="Enter a name ...">
-<hr>
-<h1>What it do, {{userName}}?</h1>
+
+
+<!-- Content for the Index/Home page. -->
+<script type="text/ng-template" id="index.html">
+	<page id="ts-home">
+		<content>
+			<header>
+				<h5>Trending</h5>
+				<h3>Lady Gaga and the End of Summer</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Music</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="features" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<!-- Content for the Features page. -->
+<script type="text/ng-template" id="features.html">
+	<page id="ts-features">
+		<content>
+			<header>
+				<h5>Just Posted</h5>
+				<h3>Webslinging with Andrew Garfield</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Celebrities</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="features" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+				<tile>&nbsp;</tile><tile>&nbsp;</tile><tile>&nbsp;</tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<navigation>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="features" ng-click='magicLoader()'>Features</a></li>
+		<li><a href="#">Pricing</a></li>
+		<li><a href="#">Resources</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+</navigation>
+<controls></controls>
+
+<viewportone ng-view></viewportone>
+
+<viewporttwo></viewporttwo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
