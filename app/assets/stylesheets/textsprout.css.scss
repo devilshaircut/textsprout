@@ -625,6 +625,7 @@ button.ts-button {
 				padding: 5px;
 				margin: 0 0 0 -5px;
 				position: relative;
+				overflow: ellipsis;
 				button.ts-overlay-search-result-play-button {
 					display: none;
 					float: left;
@@ -731,7 +732,7 @@ button.ts-button {
 
 
 .animation-fadein-enter {
-	@include transition(0.5s ease-out all);
+	@include transition(0.25s ease-out all);
 	@include opacity(0.0);
 }
 .animation-fadein-enter.animation-fadein-enter-active {
@@ -739,11 +740,11 @@ button.ts-button {
 }
 
 .animation-fadein-leave {
-	@include transition(0.5s ease-out all);
-	@include opacity(0.0);
+	@include transition(0.25s ease-out all);
+	@include opacity(1.0);
 }
 .animation-fadein-leave.animation-fadein-leave-active {
-	@include opacity(1.0);
+	@include opacity(0.0);
 }
 
 

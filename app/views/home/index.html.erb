@@ -118,7 +118,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>Songs <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
@@ -129,7 +129,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>Videos <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
@@ -140,7 +140,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>Artists <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
@@ -151,7 +151,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>Albums <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
@@ -162,7 +162,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>People <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
@@ -173,7 +173,7 @@
 	<div class="ts-overlay-search-results">
 		<h3>Mixes <a href="#">See More &raquo;</a></h3>
 		<ul>
-			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 25}}ms">
 				<button class="ts-overlay-search-result-play-button">P</button>
 				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
 				<a href="#"><h4>{{album.albumName}}</h4></a>
