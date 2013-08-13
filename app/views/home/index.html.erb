@@ -5,6 +5,11 @@
 <script type="text/ng-template" id="index.html">
 	<page id="ts-home">
 		<content>
+			<banner>
+				<h1>Welcome to the Neighborhood.</h1>
+				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
+				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
+			</banner>
 			<header>
 				<h5>Home</h5>
 				<h3>Lady Gaga and the End of Summer</h3>
@@ -23,6 +28,11 @@
 <script type="text/ng-template" id="features.html">
 	<page id="ts-features">
 		<content>
+			<banner>
+				<h1>Welcome to the Neighborhood.</h1>
+				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
+				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
+			</banner>
 			<header>
 				<h5>Features</h5>
 				<h3>Webslinging with Andrew Garfield</h3>
@@ -41,6 +51,7 @@
 <script type="text/ng-template" id="pricing.html">
 	<page id="ts-pricing">
 		<content>
+			<banner></banner>
 			<header>
 				<h5>Pricing</h5>
 				<h3>Webslinging with Andrew Garfield</h3>
@@ -59,6 +70,7 @@
 <script type="text/ng-template" id="resources.html">
 	<page id="ts-resources">
 		<content>
+			<banner></banner>
 			<header>
 				<h5>Resources</h5>
 				<h3>Webslinging with Andrew Garfield</h3>
@@ -77,6 +89,7 @@
 <script type="text/ng-template" id="contact.html">
 	<page id="ts-contact">
 		<content>
+			<banner></banner>
 			<header>
 				<h5>Contact Us</h5>
 				<h3>Webslinging with Andrew Garfield</h3>
@@ -91,6 +104,85 @@
 	</page>
 </script>
 
+
+
+<overlay>
+	<h2>
+		<strong>Search Myspace</strong>
+		<em>Start typing ...</em>
+	</h2>
+	<h2>
+		<strong>Close Overlay</strong>
+	</h2>
+	<input type="text" id="ts-overlay-search" ng-model="queryMusic" placeholder="Search ..." autofocus />
+	<div class="ts-overlay-search-results">
+		<h3>Songs <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+	<div class="ts-overlay-search-results">
+		<h3>Videos <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+	<div class="ts-overlay-search-results">
+		<h3>Artists <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+	<div class="ts-overlay-search-results">
+		<h3>Albums <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { albumName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+	<div class="ts-overlay-search-results">
+		<h3>People <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { songList: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+	<div class="ts-overlay-search-results">
+		<h3>Mixes <a href="#">See More &raquo;</a></h3>
+		<ul>
+			<li ng-repeat="album in albumModel | filter: { artistName: queryMusic } | limitTo: 10" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms">
+				<button class="ts-overlay-search-result-play-button">P</button>
+				<img src="<%= asset_path 'thumbnail.png' %>" alt="Image." />
+				<a href="#"><h4>{{album.albumName}}</h4></a>
+				<a href="#"><h5>{{album.artistName}}</h5></a>
+			</li>
+		</ul>
+	</div>
+</overlay>
+
 <navigation>
 	<h3>Discover</h3>
 	<ul>
@@ -102,34 +194,7 @@
 	</ul>
 </navigation>
 
-<controls>
-	<ul id="ts-session">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Log In</a></li>
-	</ul>
-	<ul id="ts-controls-options">
-		<li><a href="#" class="ts-current"><span>Discover</span></a></li>
-		<li><a href="#"><span>Search</span></a></li>
-	</ul>
-	<div id="ts-musicplayer">
-		<button class="ts-musicplayer-button"></button>
-		<button class="ts-musicplayer-button"></button>
-		<button class="ts-musicplayer-button"></button>
-		<button class="ts-musicplayer-button"></button>
-		<div id="ts-musicplayer-status">
-			<div id="ts-musicplayer-title">
-				<h3><strong>Take Back The Night</strong> Justin Timberlake</h3>
-				<h4>0:08 / 5:55</h4>
-			</div>
-			<div id="ts-musicplayer-progress">
-				<div id="ts-musicplayer-buffer" style="width: 35%;">
-					<div id="ts-musicplayer-progress-bar" style="width: 20%;">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</controls>
+<controls></controls>
 
 <viewport></viewport>
 

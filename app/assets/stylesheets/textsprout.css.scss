@@ -99,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 strong { font-weight: 700; }
+em { font-style: italic; }
 
 p { margin: 0 0 10px 0; }
 
@@ -138,6 +139,7 @@ p { margin: 0 0 10px 0; }
 	text-decoration: none;
 	cursor: pointer;
 	@include adjust-font-size-to(12px);
+	@include border-radius(2px);
 }
 
 .ts-button:before {
@@ -193,10 +195,10 @@ button.ts-button {
 
 
 #ts-navigation {
-	width: 200px;
+	width: 150px;
 	margin: 20px 0 0 20px;
 	padding: 10px 0;
-	position: absolute;
+	position: fixed;
 	z-index: 200;
 	background: #313131;
 	color: #747474;
@@ -237,17 +239,59 @@ button.ts-button {
 #ts-controls {
 	height: 60px;
 	width: 100%;
-	position: absolute;
-	z-index: 100;
+	position: fixed;
+	z-index: 800;
 	left: 0;
 	bottom: 0;
 	background: #272727;
 	color: #ffffff;
 	overflow: hidden;
 	@include box-shadow(0 0 3px #585858);
+	ul#ts-session {
+		display: block;
+		float: left;
+		height: 45px;
+		padding: 15px 10px 0 10px;
+		margin: 0 0 0 20px;
+		position: relative;
+		z-index: 120;
+		background: #313131;
+		@include box-shadow(0 0 15px #191919);
+		> li {
+			display: block;
+			float: left;
+			> a {
+				display: block;
+				float: left;
+				padding: 5px 15px;
+				border-right: 1px solid #3c3c3c;
+				border-left: 1px solid #010101;
+				color: #7f7f7f;
+				font-weight: 700;
+				text-decoration: none;
+				@include transition-property(color);
+				@include transition-duration(0.1s);
+			}
+			> a:hover {
+				color: #ffffff;
+			}
+		}
+		> li:nth-child(1) {
+			> a {
+				border-left: none;
+			}
+		}
+		> li:last-child {
+			> a {
+				border-right: none;
+			}
+		}
+	}
 	ul#ts-controls-options {
 		display: block;
 		float: left;
+		position: relative;
+		z-index: 110;
 		height: 45px;
 		padding: 15px 0 0 0;
 		margin: 0 10px 0 0;
@@ -291,44 +335,6 @@ button.ts-button {
 				> span {
 					border-right: none;
 				}
-			}
-		}
-	}
-	ul#ts-session {
-		display: block;
-		float: left;
-		height: 45px;
-		padding: 15px 10px 0 10px;
-		margin: 0 0 0 20px;
-		background: #313131;
-		@include box-shadow(0 0 15px #191919);
-		> li {
-			display: block;
-			float: left;
-			> a {
-				display: block;
-				float: left;
-				padding: 5px 15px;
-				border-right: 1px solid #3c3c3c;
-				border-left: 1px solid #010101;
-				color: #7f7f7f;
-				font-weight: 700;
-				text-decoration: none;
-				@include transition-property(color);
-				@include transition-duration(0.1s);
-			}
-			> a:hover {
-				color: #ffffff;
-			}
-		}
-		> li:nth-child(1) {
-			> a {
-				border-left: none;
-			}
-		}
-		> li:last-child {
-			> a {
-				border-right: none;
 			}
 		}
 	}
@@ -412,20 +418,55 @@ button.ts-button {
 
 .ts-content {
 	height: 100%;
-	margin: 0 0 0 700px;
-	@include transition-property(margin-left);
-	@include transition-duration(0.5s);
 	@include box-shadow(0 0 3px #dedede);
 }
-.ts-content:hover {
-	margin: 0 0 0 280px;
+
+.ts-banner {
+	width: 560px;
+	padding: 0 20px 0 220px;
+	position: absolute;
+	min-height: 100%;
+	color: #ffffff;
+	@include text-shadow(0 1px 2px #585858);
+	h1 {
+		width: 460px;
+		padding: 250px 0 30px 0;
+		margin: 0 0 20px 0;
+		border-bottom: 1px dotted #ffffff;
+		font-weight: 100;
+		@include adjust-font-size-to(64px);
+		line-height: 1em;
+	}
+	p {
+		width: 460px;
+		margin: 0 0 30px 0;
+		font-weight: 100;
+		@include adjust-font-size-to(20px);
+		line-height: 1.6em;
+	}
+	.ts-button {
+		width: 122px;
+		padding: 3px 14px 7px 14px;
+		margin: 0 10px 0 0;
+		text-align: center;
+		color: #ffffff;
+		background: #8E8E8E;
+		text-transform: none;
+		font-weight: 300;
+		@include adjust-font-size-to(18px);	
+		@include text-shadow(none);
+	}
+	.ts-button-cta {
+		background: #008dde;
+	}
 }
 
 .ts-header {
-	display: inline-block;
 	border-left: 2px solid #ffffff;
 	width: 260px;
 	padding: 0 20px;
+	margin-left: 800px;
+	position: absolute;
 	min-height: 100%;
 	background: transparent url("/assets/opacity-50.png") repeat 0 0;
 	@include opacity(0.975);
@@ -452,6 +493,7 @@ button.ts-button {
 	display: inline-block;
 	width: 1000px;
 	padding: 0 20px;
+	margin-left: 1102px;
 	min-height: 100%;
 	position: absolute;
 	z-index: 50;
@@ -495,8 +537,157 @@ button.ts-button {
 }
 
 
-
-
+#ts-overlay {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 40px 0 40px 40px;
+	background: transparent url("/assets/modal-background.png") repeat 0 0;
+	color: #393939;
+	position: absolute;
+	z-index: 700;
+	overflow-y: hidden;
+	@include box-sizing(border-box);
+	h2 {
+		display: block;
+		float: left;
+		margin: 10px 0;
+		strong {
+			display: block;
+			float: left;
+			width: 100%;
+			margin: 0 0 4px 0;
+			color: #7f7f7f;
+			font-weight: 900;
+			text-transform: uppercase;
+			line-height: 1em;
+		}
+		em {
+			display: block;
+			float: left;
+			width: 100%;
+			color: #666666;
+			line-height: 1em;
+		}
+	}
+	input#ts-overlay-search {
+		display: block;
+		float: left;
+		width: 100%;
+		padding: 0;
+		margin: 0 0 10px 0;
+		border: none;
+		background: transparent;
+		font-weight: 900;
+		color: #393939;
+		outline: none;
+		text-transform: uppercase;
+		@include adjust-font-size-to(98px);
+	}
+	.ts-overlay-search-results {
+		display: block;
+		float: left;
+		width: 200px;
+		margin: 0 30px 0 -10px;
+		padding: 10px 0 0 0;
+		position: relative;
+		h3 {
+			display: block;
+			float: left;
+			width: 180px;
+			padding: 0 0 5px 0;
+			margin: 0 10px;
+			border-bottom: 1px solid #cccccc;
+			text-transform: uppercase;
+			font-weight: 700;
+			color: #6f6f6f;
+			a {
+				display: block;
+				float: right;
+				text-transform: none;
+				text-decoration: none;
+				color: #6f6f6f;
+				font-weight: 500;
+				@include adjust-font-size-to(12px);
+			}
+		}
+		ul {
+			display: block;
+			float: left;
+			width: 180px;
+			padding: 10px 0 5px 0;
+			margin: 0 10px;
+			border-top: 1px solid #ffffff;
+			li {
+				display: block;
+				float: left;
+				width: 180px;
+				padding: 5px;
+				margin: 0 0 0 -5px;
+				position: relative;
+				button.ts-overlay-search-result-play-button {
+					display: none;
+					float: left;
+					border: none;
+					visibility: hidden;
+					position: absolute;
+					width: 21px;
+					height: 21px;
+					margin: 7px 0 0 7px;
+					background: #000000;
+					text-align: center;
+					@include opacity(0.75);
+				}
+				img {
+					display: block;
+					float: left;
+					width: 35px;
+					height: 35px;
+					margin: 0 8px 0 0;
+				}
+				a {
+					display: block;
+					float: left;
+					width: 137px;
+					color: #393939;
+					h4 {
+						display: block;
+						float: left;
+						width: 137px;
+						margin: 0 0 3px 0;
+						padding: 3px 0 0 0;
+						font-weight: 900;
+						line-height: 1em;
+					}
+					h5 {
+						display: block;
+						float: left;
+						width: 137px;
+						font-weight: 300;
+						line-height: 1em;
+					}
+				}
+			}
+			li:hover {
+				background: #ffffff;
+				button.ts-overlay-search-result-play-button {
+					display: block;
+					visibility: visible;
+				}
+			}
+		}
+	}
+	.ts-overlay-search-results:hover {
+		background: #f6f6f6;
+		h3 {
+			color: #008dde;
+			border-bottom: 1px solid #008dde;
+			a {
+				color: #008dde;
+			}
+		}
+	}
+}
 
 
 
@@ -522,17 +713,14 @@ button.ts-button {
 
 .animation-scrollpage-enter {
 	@include transition(0.5s ease all);
-	@include transition-duration(0.25s);
 	position: relative;
 	top: 0;
 }
 .animation-scrollpage-enter.animation-scrollpage-enter-active {
 	top: -100%;
 }
-
 .animation-scrollpage-leave {
 	@include transition(0.5s ease all);
-	@include transition-duration(0.25s);
 	position: relative;
 	top: 0;
 }
@@ -540,10 +728,10 @@ button.ts-button {
 	top: -100%;
 }
 
+
+
 .animation-fadein-enter {
 	@include transition(0.5s ease-out all);
-	@include transition-duration(0.25s);
-	position: relative;
 	@include opacity(0.0);
 }
 .animation-fadein-enter.animation-fadein-enter-active {
@@ -552,8 +740,6 @@ button.ts-button {
 
 .animation-fadein-leave {
 	@include transition(0.5s ease-out all);
-	@include transition-duration(0.25s);
-	position: relative;
 	@include opacity(0.0);
 }
 .animation-fadein-leave.animation-fadein-leave-active {
@@ -562,18 +748,20 @@ button.ts-button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.ts-overlay-show {
+	@include transition(0.25s ease-out all);
+	@include opacity(0.0);
+}
+.ts-overlay-show.ts-overlay-show-active {
+	@include opacity(1.0);
+}
+.ts-overlay-hide {
+	@include transition(0.25s ease-out all);
+	@include opacity(1.0);
+}
+.ts-overlay-hide.ts-overlay-hide-active {
+	@include opacity(0.0);
+}
 
 
 
