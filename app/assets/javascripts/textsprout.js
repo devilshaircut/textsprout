@@ -38,6 +38,9 @@ TextSprout.factory('fetchData', function($http) {
 		},
 		fetchTopRockAlbums: function(callback) {
 			$http.get(baseApiRoute + "/2.0/?method=tag.gettopalbums&tag=rock&api_key=3ed7a5a866d2fed75bba957d58eace93&format=json&limit=50&page=1").success(callback);
+		},
+		fetchTopDiscoAlbums: function(callback) {
+			$http.get(baseApiRoute + "/2.0/?method=tag.gettopalbums&tag=disco&api_key=3ed7a5a866d2fed75bba957d58eace93&format=json&limit=50&page=1").success(callback);
 		}
 	}
 
@@ -52,6 +55,9 @@ TextSprout.controller('TextsproutController', function($scope, $timeout, fetchDa
 	});
 	fetchData.fetchTopRockAlbums(function(data) {
 		$scope.topRockAlbums = data.topalbums.album;
+	});
+	fetchData.fetchTopDiscoAlbums(function(data) {
+		$scope.topDiscoAlbums = data.topalbums.album;
 	});
 	$scope.overlayOn = true;
 	$scope.toggleOverlay = function() {
