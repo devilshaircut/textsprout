@@ -3,12 +3,12 @@
 
 <!-- Content for the Index/Home page. -->
 <script type="text/ng-template" id="index.html">
-	<page id="ts-features">
+	<page id="ts-home" style="background-color: #9e9d8b; background-image: url('/assets/andrew.png'); background-position: -110px 0;">
 		<content>
 			<banner>
 				<h1>Welcome to the Neighborhood.</h1>
 				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
-				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
+				<a class="ts-button ts-button-cta" href="#">Join Myspace</a><a class="ts-button" href="#">Sign In</a>
 			</banner>
 			<header>
 				<h5>Features</h5>
@@ -26,12 +26,12 @@
 
 <!-- Content for the Features page. -->
 <script type="text/ng-template" id="features.html">
-	<page id="ts-home">
+	<page id="ts-features" style="background-color: #f4f4f4; background-image: url('/assets/gaga.png'); background-position: -50px 0;">
 		<content>
 			<banner>
 				<h1>Welcome to the Neighborhood.</h1>
 				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
-				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
+				<a class="ts-button ts-button-cta" href="#">Join Myspace</a><a class="ts-button" href="#">Sign In</a>
 			</banner>
 			<header>
 				<h5>Home</h5>
@@ -49,7 +49,7 @@
 
 <!-- Content for the Features page. -->
 <script type="text/ng-template" id="pricing.html">
-	<page id="ts-pricing">
+	<page id="ts-pricing" style="background-color: #9e9d8b; background-image: url('/assets/andrew.png'); background-position: -110px 0;">
 		<content>
 			<banner></banner>
 			<header>
@@ -60,7 +60,7 @@
 				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
-				<tile></tile>
+				<tile ng-repeat="album in topDiscoAlbums" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms"></tile>
 			</article>
 		</content>
 	</page>
@@ -68,7 +68,7 @@
 
 <!-- Content for the Features page. -->
 <script type="text/ng-template" id="resources.html">
-	<page id="ts-resources">
+	<page id="ts-resources" style="background-color: #f4f4f4; background-image: url('/assets/gaga.png'); background-position: -50px 0;">
 		<content>
 			<banner></banner>
 			<header>
@@ -79,7 +79,7 @@
 				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
-				<tile></tile>
+				<tile ng-repeat="album in topPopAlbums" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms"></tile>
 			</article>
 		</content>
 	</page>
@@ -87,7 +87,7 @@
 
 <!-- Content for the Features page. -->
 <script type="text/ng-template" id="contact.html">
-	<page id="ts-contact">
+	<page id="ts-contact" style="background-color: #9e9d8b; background-image: url('/assets/andrew.png'); background-position: -110px 0;">
 		<content>
 			<banner></banner>
 			<header>
@@ -98,7 +98,7 @@
 				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
-				<tile></tile>
+				<tile ng-repeat="album in topRockAlbums" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms"></tile>
 			</article>
 		</content>
 	</page>
