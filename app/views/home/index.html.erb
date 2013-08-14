@@ -3,29 +3,6 @@
 
 <!-- Content for the Index/Home page. -->
 <script type="text/ng-template" id="index.html">
-	<page id="ts-home">
-		<content>
-			<banner>
-				<h1>Welcome to the Neighborhood.</h1>
-				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
-				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
-			</banner>
-			<header>
-				<h5>Home</h5>
-				<h3>Lady Gaga and the End of Summer</h3>
-				<h6><strong>By: Caitlyn MacDonald</strong> • Music</h6>
-				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
-				<a href="/" class="ts-button">Read Full Article</a>
-			</header>
-			<article>
-				<tile></tile>
-			</article>
-		</content>
-	</page>
-</script>
-
-<!-- Content for the Features page. -->
-<script type="text/ng-template" id="features.html">
 	<page id="ts-features">
 		<content>
 			<banner>
@@ -41,7 +18,30 @@
 				<a href="/" class="ts-button">Read Full Article</a>
 			</header>
 			<article>
-				<tile></tile>
+				<tile ng-repeat="album in topRockAlbums" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms"></tile>
+			</article>
+		</content>
+	</page>
+</script>
+
+<!-- Content for the Features page. -->
+<script type="text/ng-template" id="features.html">
+	<page id="ts-home">
+		<content>
+			<banner>
+				<h1>Welcome to the Neighborhood.</h1>
+				<p>Discover, share and connect with culture, creativity, sound, images and people. Learn more.</p>
+				<a class="ts-button ts-button-cta" href="#">Join MySpace</a><a class="ts-button" href="#">Sign In</a>
+			</banner>
+			<header>
+				<h5>Home</h5>
+				<h3>Lady Gaga and the End of Summer</h3>
+				<h6><strong>By: Caitlyn MacDonald</strong> • Music</h6>
+				<p style="margin-bottom: 20px;">Bacon ipsum dolor sit amet prosciutto pork shankle flank, beef ribs sirloin strip steak tri-tip brisket t-bone tenderloin. Tenderloin beef pork chop leberkas drumstick t-bone. Ribeye ball tip bacon kielbasa salami pork. Kielbasa ham hock pork belly shank jowl meatball bresaola strip steak brisket.</p>
+				<a href="/" class="ts-button">Read Full Article</a>
+			</header>
+			<article>
+				<tile ng-repeat="album in topPopAlbums" ng-animate="{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" style="transition-delay: {{$index * 75}}ms"></tile>
 			</article>
 		</content>
 	</page>

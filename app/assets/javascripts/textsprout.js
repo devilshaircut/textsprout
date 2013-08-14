@@ -25,8 +25,34 @@ var TextSprout = angular.module("TextSprout", [], function($routeProvider, $loca
 	$locationProvider.html5Mode(true);
 });
 
+
+
+
+TextSprout.factory('fetchData', function($http) {
+
+	var baseApiRoute = "http://ws.audioscrobbler.com";
+
+	return {
+		fetchTopPopAlbums: function(callback) {
+			$http.get(baseApiRoute + "/2.0/?method=tag.gettopalbums&tag=pop&api_key=3ed7a5a866d2fed75bba957d58eace93&format=json&limit=50&page=1").success(callback);
+		},
+		fetchTopRockAlbums: function(callback) {
+			$http.get(baseApiRoute + "/2.0/?method=tag.gettopalbums&tag=rock&api_key=3ed7a5a866d2fed75bba957d58eace93&format=json&limit=50&page=1").success(callback);
+		}
+	}
+
+	
+
+});
+
 // Create Angular controller that will provide data to the app.
-TextSprout.controller('TextsproutController', function($scope, $timeout) {
+TextSprout.controller('TextsproutController', function($scope, $timeout, fetchData) {
+	fetchData.fetchTopPopAlbums(function(data) {
+		$scope.topPopAlbums = data.topalbums.album;
+	});
+	fetchData.fetchTopRockAlbums(function(data) {
+		$scope.topRockAlbums = data.topalbums.album;
+	});
 	$scope.overlayOn = true;
 	$scope.toggleOverlay = function() {
 		overlayOn = !overlayOn;
@@ -184,10 +210,10 @@ TextSprout.directive('controls', function() {
 					'<li><a href="#" ng-click="overlayOn = !overlayOn"><span>Search</span></a></li>' +
 				'</ul>' +
 				'<div id="ts-musicplayer">' +
-					'<button class="ts-musicplayer-button"></button>' +
-					'<button class="ts-musicplayer-button"></button>' +
-					'<button class="ts-musicplayer-button"></button>' +
-					'<button class="ts-musicplayer-button"></button>' +
+					'<button class="ts-musicplayer-button">&#x23EA;</button>' +
+					'<button class="ts-musicplayer-button">&#x25B6;</button>' +
+					'<button class="ts-musicplayer-button">&#x23E9;</button>' +
+					'<button class="ts-musicplayer-button">&#xE820;</button>' +
 					'<div id="ts-musicplayer-status">' +
 						'<div id="ts-musicplayer-title">' +
 							'<h3><strong>Take Back The Night</strong> Justin Timberlake</h3>' +
@@ -201,6 +227,7 @@ TextSprout.directive('controls', function() {
 						'</div>' +
 					'</div>' +
 				'</div>' +
+				'<div id="ts-footer"></div>' +
 			'</div>'
 	}
 });
@@ -249,9 +276,12 @@ TextSprout.directive('tile', function() {
 		restrict: "E",
 		replace: true,
 		template:
-			'<div class="ts-tile" ng-repeat="tile in tileModel" ng-animate="' + "{ enter: 'animation-fadein-enter', leave: 'animation-fadein-leave' }" + '" style="transition-delay: {{$index * 75}}ms">' +
-				'<h3>{{tile.tileSubject}}</h3>' +
-				'<h4>{{tile.tileHeadline}}</h4>' +
+			'<div class="ts-tile">' +
+				'<img src="{{album.image[3]'+ "['#text']" + '}}" />' +
+				'<div class="ts-tile-text">' +
+					'<h3>{{album.artist.name}}</h3>' +
+					'<h4>{{album.name}}</h4>' +
+				'</div>' +
 			'</div>'
 	}
 });

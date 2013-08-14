@@ -68,6 +68,14 @@ $base-line-height: 20px;
 @media (max-width: 480px) {}							/* Small Viewport */
 
 
+/* Icon Font Names */
+/************************************************/
+
+$symbolset-standard: "SSStandard";
+$symbolset-symbolicons: "SSSymbolicons";
+$symbolset-social: "SSSocial";
+
+
 
 /****************************************************************************************************
   1.  Universal Cascade
@@ -80,6 +88,7 @@ $base-line-height: 20px;
 html {
 	height: 100%;
 	position: relative;
+	overflow: hidden;
 }
 
 
@@ -91,6 +100,7 @@ body {
 	color: #333333;
 	font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	font-weight: 400;
+	overflow: scroll;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -237,7 +247,8 @@ button.ts-button {
 }
 
 #ts-controls {
-	height: 60px;
+	display: block;
+	height: 80px;
 	width: 100%;
 	position: fixed;
 	z-index: 800;
@@ -247,6 +258,16 @@ button.ts-button {
 	color: #ffffff;
 	overflow: hidden;
 	@include box-shadow(0 0 3px #585858);
+	#ts-footer {
+		display: block;
+		float: left;
+		height: 20px;
+		width: 100%;
+		position: relative;
+		z-index: 130;
+		background: #D2D2D2;
+		@include box-shadow(0 8px 24px 0 #999897 inset);
+	}
 	ul#ts-session {
 		display: block;
 		float: left;
@@ -347,6 +368,13 @@ button.ts-button {
 		background: #1d1d1d;
 		border-bottom: 1px solid #333333;
 		@include border-radius(3px);
+		.ts-musicplayer-button:hover {
+			border-top: 1px solid #ababab;
+			border-right: 1px solid #999999;
+			border-bottom: 1px solid #919191;
+			border-left: 1px solid #999999;
+			@include background-image(linear-gradient(#a5a5a5, #929292));
+		}
 		.ts-musicplayer-button {
 			display: block;
 			float: left;
@@ -358,6 +386,8 @@ button.ts-button {
 			border-right: 1px solid #373737;
 			border-bottom: 1px solid #303030;
 			border-left: 1px solid #373737;
+			font-family: "SSStandard", "SSSymbolicons", "SSSocial";
+			cursor: pointer;
 			@include background-image(linear-gradient(#414141, #393939, #313131));
 			@include border-radius(2px);
 		}
@@ -418,14 +448,18 @@ button.ts-button {
 
 .ts-content {
 	height: 100%;
+	min-width: 1102px;
 	@include box-shadow(0 0 3px #dedede);
+	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 .ts-banner {
+	display: block;
+	float: left;
 	width: 560px;
 	padding: 0 20px 0 220px;
-	position: absolute;
-	min-height: 100%;
+	height: 100%;
 	color: #ffffff;
 	@include text-shadow(0 1px 2px #585858);
 	h1 {
@@ -462,12 +496,12 @@ button.ts-button {
 }
 
 .ts-header {
-	border-left: 2px solid #ffffff;
+	display: block;
+	float: left;
 	width: 260px;
+	height: 100%;
 	padding: 0 20px;
-	margin-left: 800px;
-	position: absolute;
-	min-height: 100%;
+	border-left: 2px solid #ffffff;
 	background: transparent url("/assets/opacity-50.png") repeat 0 0;
 	@include opacity(0.975);
 	h3 {
@@ -490,12 +524,14 @@ button.ts-button {
 }
 
 .ts-article {
-	display: inline-block;
-	width: 1000px;
-	padding: 0 20px;
-	margin-left: 1102px;
-	min-height: 100%;
-	position: absolute;
+	display: block;
+	float: left;
+	position: relative;
+	min-width: 2416px;
+	padding: 0 2px 2px 0;
+	margin: 0 0 0 1102px;
+	top: -100%;
+	height: 100%;
 	z-index: 50;
 	background: #ffffff;
 }
@@ -503,33 +539,70 @@ button.ts-button {
 .ts-tile {
 	display: block;
 	float: left;
-	width: 200px;
-	height: 200px;
-	margin: 20px 20px 0 0;
+	width: 300px;
+	height: 300px;
+	margin: 2px 0 0 2px;
 	background: #e8f6f3;
 	cursor: pointer;
-	h3 {
-		display: block;
-		width: 170px;
-		padding: 10px 15px 0 15px;
-		margin: 100px 0 0 0;
-		font-weight: 700;
-		background: transparent url("/assets/opacity-50.png") repeat 0 0;
-		@include adjust-font-size-to(12px);
+	img {
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		z-index: 50;
 	}
-	h4 {
+	.ts-tile-text:hover {
+		@include opacity(1.0);
+		@include transition-delay(0);
+		h3 {
+			@include transition-delay(0);
+			padding: 210px 10px 8px 10px;
+		}
+	}
+	.ts-tile-text {
 		display: block;
-		width: 170px;
-		padding: 0 15px 10px 15px;
-		font-weight: 100;
-		background: transparent url("/assets/opacity-50.png") repeat 0 0;
-		@include adjust-font-size-to(18px);
-		line-height: 1.2em;
+		float: left;
+		position: relative;
+		z-index: 60;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+		@include transition(0.15s ease all);
+		@include transition-delay(0.1s);
+		@include background-image(linear-gradient(transparent, rgba(0, 0, 0, 0.66)));
+		@include opacity(0.75);
+		h3 {
+			display: block;
+			width: 270px;
+			padding: 250px 10px 15px 10px;
+			margin: 0 5px;
+			color: #ffffff;
+			font-weight: 100;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			@include adjust-font-size-to(36px);
+			line-height: 1em;
+			@include transition(0.15s ease all);
+			@include transition-delay(0.1s);
+			@include text-shadow(0 1px 3px #000000);
+		}
+		h4 {
+			display: block;
+			width: 270px;
+			padding: 0px 10px 0 10px;
+			margin: 0 5px 0 5px;
+			color: #ffffff;
+			font-weight: 700;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			text-transform: uppercase;
+			@include adjust-font-size-to(14px);
+			line-height: 1em;
+			@include text-shadow(0 1px 3px #000000);
+		}
 	}
 }
-/*.ts-tile:hover {
-	@include opacity(.66);
-}*/
 
 #ts-viewport {
 	width: 100%;
