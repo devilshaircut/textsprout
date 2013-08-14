@@ -48,20 +48,6 @@ TextSprout.factory('fetchData', function($http) {
 
 // Create Angular controller that will provide data to the app.
 TextSprout.controller('TextsproutController', function($scope, $timeout, fetchData) {
-
-	// Figure out how to get this working later.
-	// $scope.playVideo = $timeout( function () {
-	// 		$('.ts-page').videoBG({
-	// 			mp4: 'http://www.textsprout.dev/assets/cloud.mp4',
-	// 			ogv: 'http://www.textsprout.dev/assets/cloud.ogv',
-	// 			webm: 'http://www.textsprout.dev/assets/cloud.webm',
-	// 			poster: 'http://www.textsprout.dev/assets/cloud.jpg',
-	// 			scale: true,
-	// 			zIndex: 0
-	// 		})
-	// 	},
-	// 	0
-	// );
 	
 	fetchData.fetchTopPopAlbums(function(data) {
 		$scope.topPopAlbums = data.topalbums.album;
