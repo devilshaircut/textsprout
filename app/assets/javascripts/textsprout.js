@@ -27,7 +27,6 @@ var TextSprout = angular.module("TextSprout", [], function($routeProvider, $loca
 
 
 
-
 TextSprout.factory('fetchData', function($http) {
 
 	var baseApiRoute = "http://ws.audioscrobbler.com";
@@ -46,6 +45,8 @@ TextSprout.factory('fetchData', function($http) {
 
 });
 
+
+
 // Create Angular controller that will provide data to the app.
 TextSprout.controller('TextsproutController', function($scope, $timeout, fetchData) {
 	
@@ -58,136 +59,12 @@ TextSprout.controller('TextsproutController', function($scope, $timeout, fetchDa
 	fetchData.fetchTopDiscoAlbums(function(data) {
 		$scope.topDiscoAlbums = data.topalbums.album;
 	});
+
 	$scope.overlayOn = true;
 	$scope.toggleOverlay = function() {
 		overlayOn = !overlayOn;
 	};
-	$scope.tileModel = $timeout(function() {	// Use a timeout to fake an ansynchronous AJAX request.
-		return [
-			{ tileSubject: "Music News",			tileHeadline: "Lady Gaga Inks Album Deal With Jay-Z" },
-			{ tileSubject: "Celebrity Gossip",		tileHeadline: "Miley Cyrus Expecting Twins this Winter" },
-			{ tileSubject: "Editor's Pick",			tileHeadline: "Arcade Fire: The Suburbs (2008 Arista)" },
-			{ tileSubject: "Concert Tours",			tileHeadline: "Ke$ha Extends Tour With 4 New Dates" },
-			{ tileSubject: "Fashion & Music",		tileHeadline: "Who Wore It Better? Beyonce vs. Rihanna" },
-			{ tileSubject: "Album Review",			tileHeadline: "The Knife: Silent Shout (2006 Interscope)" },
-			{ tileSubject: "Featured Article",		tileHeadline: "The Rise and Fall of the Vinyl Record" },
-			{ tileSubject: "Emerging Artist",		tileHeadline: "JJAMZ Rock Out on the Summer Radio" },
-			{ tileSubject: "Advance Preview",		tileHeadline: "OK Go to Release New Album" },
-			{ tileSubject: "Exclusive Coverage",	tileHeadline: "Madonna's Top 10 All-Time Favorite Albums" },
-			{ tileSubject: "Official Blog",			tileHeadline: "Concert Tour Sales Reach Record High" },
-			{ tileSubject: "Musician Interview",	tileHeadline: "Tenacious D: Chasing Jack Black" }
-		];
-	}, 0);
-	$scope.albumModel = $timeout(function() {	// Use a timeout to fake an ansynchronous AJAX request.
-		return [
-			{
-				'albumName': "The Suburbs",
-				'artistName': "Arcade Fire",
-				'songList': [
-					'The Suburbs',
-					'Ready to Start',
-					'Modern Name',
-					'Rococo',
-					'Empty Room',
-					'City with No Children',
-					'Half Light I',
-					'Half Light II',
-					'Suburban War',
-					'Month of May',
-					'Wasted Hours',
-					'Deep Blue',
-					'We Used to Wait',
-					'Sprawl I',
-					'Sprawl II',
-					'The Suburbs (continued)'
-				]
-			},
-			{
-				'albumName': "OK Go",
-				'artistName': "OK Go",
-				'songList': [
-					"Get Over It",
-					"Don't Ask Me",
-					"You're So Damn Hot",
-					"What to Do",
-					"1000 Miles per Hour",
-					"Shorly Before End",
-					"Return",
-					"There's a Fire",
-					"C-C-C-Cinnamon Lips",
-					"The Fix is In",
-					"Hello, My Treacherous Friends",
-					"Bye Bye Baby"
-				]
-			},
-			{
-				'albumName': "The Fame Monster",
-				'artistName': "Lady Gaga",
-				'songList': [
-					"Bad Romance",
-					"Alejandro",
-					"Monster",
-					"Speechless",
-					"Dance in the Dark",
-					"Telephone",
-					"So Happy I Could Die",
-					"Teeth"
-				]
-			},
-			{
-				'albumName': "Ramones",
-				'artistName': "The Ramones",
-				'songList': [
-					"Blitzkrieg Bop",
-					"Beat on the Brat",
-					"Judy is a Punk",
-					"I Wanna Be Your Boyfriend",
-					"Chain Saw",
-					"Now I Wanna Sniff Some Glue",
-					"I Don't Wanna Go Down to the Basement",
-					"Loudmouth",
-					"Havana Affair",
-					"Listen to My Heart",
-					"53rd & 3rd",
-					"Let's Dance",
-					"I Don't Wanna Walk Around with You",
-					"Today Your Love, Tommorrow the World"
-				]
-			},
-			{
-				'albumName': "Music",
-				'artistName': "Madonna"
-			},
-			{
-				'albumName': "Believe",
-				'artistName': "Cher"
-			},
-			{
-				'albumName': "Blonde on Blonde",
-				'artistName': "Bob Dylan"
-			},
-			{
-				'albumName': "Sticky Fingers",
-				'artistName': "The Rolling Stones"
-			},
-			{
-				'albumName': "Cracked Rearview",
-				'artistName': "Hootie and the Blowfish"
-			},
-			{
-				'albumName': "Animal",
-				'artistName': "Ke$sha"
-			},
-			{
-				'albumName': "Is This It",
-				'artistName': "The Strokes"
-			},
-			{
-				'albumName': "Give Up",
-				'artistName': "The Postal Service"
-			}
-		];
-	}, 0);
+
 });
 
 // Directives for creating various page elements.
